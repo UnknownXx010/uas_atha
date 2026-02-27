@@ -110,6 +110,18 @@ button:hover{
 </style>
 </head>
 
+
+<script>
+const tahunView = document.getElementById('tahun_view');
+const tahunHidden = document.getElementById('tahun');
+
+tahunView.addEventListener('change', function () {
+    if (this.value) {
+        tahunHidden.value = new Date(this.value).getFullYear();
+    }
+});
+</script>
+
 <body>
 
 <div class="container">
@@ -128,9 +140,10 @@ button:hover{
         </div>
 
         <div class="input-group">
-            <label>Tahun</label>
-            <input type="number" name="tahun" min="1980" max="<?= date('Y'); ?>" required>
-        </div>
+    <label>Tahun</label>
+    <input type="date" id="tahun_view" required>
+    <input type="hidden" name="tahun" id="tahun">
+</div>
 
         <div class="input-group">
             <label>Harga (Rp)</label>
