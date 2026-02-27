@@ -11,7 +11,7 @@ $tipe = mysqli_query($conn,"SELECT * FROM tipe_kendaraan");
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <title>Tambah Kendaraan</title>
@@ -129,42 +129,40 @@ button:hover{
 
         <div class="input-group">
             <label>Tahun</label>
-           <input type="date" name="tahun" required>
+            <input type="number" name="tahun" min="1980" max="<?= date('Y'); ?>" required>
         </div>
 
-        
-            <div class="input-group">
-    <label>Harga (Rp)</label>
-    <input type="text" id="harga_view" placeholder="Rp 0" required>
-    <input type="hidden" name="harga" id="harga">
-</div>
-     
+        <div class="input-group">
+            <label>Harga (Rp)</label>
+            <input type="text" id="harga_view" placeholder="Rp 0" required>
+            <input type="hidden" name="harga" id="harga">
+        </div>
 
         <div class="input-group">
             <label>Merk</label>
-            <select name="id_merk">
-                <?php while($m=mysqli_fetch_assoc($merk)){ ?>
-                <option value="<?= $m['id_merk']; ?>">
-                    <?= $m['nama_merk']; ?>
-                </option>
+            <select name="id_merk" required>
+                <?php while($m = mysqli_fetch_assoc($merk)){ ?>
+                    <option value="<?= $m['id_merk']; ?>">
+                        <?= $m['nama_merk']; ?>
+                    </option>
                 <?php } ?>
             </select>
         </div>
 
         <div class="input-group">
             <label>Tipe</label>
-            <select name="id_tipe">
-                <?php while($t=mysqli_fetch_assoc($tipe)){ ?>
-                <option value="<?= $t['id_tipe']; ?>">
-                    <?= $t['nama_tipe']; ?>
-                </option>
+            <select name="id_tipe" required>
+                <?php while($t = mysqli_fetch_assoc($tipe)){ ?>
+                    <option value="<?= $t['id_tipe']; ?>">
+                        <?= $t['nama_tipe']; ?>
+                    </option>
                 <?php } ?>
             </select>
         </div>
 
         <div class="input-group">
             <label>Status</label>
-            <select name="status">
+            <select name="status" required>
                 <option value="Tersedia">Tersedia</option>
                 <option value="Terjual">Terjual</option>
             </select>
@@ -172,15 +170,35 @@ button:hover{
 
         <div class="input-group">
             <label>Foto Unit</label>
-            <input type="file" name="foto" required>
+            <input type="file" name="foto" accept="image/*" required>
         </div>
 
         <button type="submit">Simpan Data</button>
-
     </form>
 
     <a href="index.php" class="back">← Kembali ke Data Kendaraan</a>
 </div>
+
+<!-- JAVASCRIPT FORMAT RUPIAH -->
+<script>
+const hargaView = document.getElementById('harga_view');
+const hargaHidden = document.getElementById('harga');
+
+hargaView.addEventListener('input', function () {
+    let angka = this.value.replace(/[^0-9]/g, '');
+    hargaHidden.value = angka;
+
+    if (angka) {
+        this.value = new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            minimumFractionDigits: 0
+        }).format(angka);
+    } else {
+        this.value = 'Rp 0';
+    }
+});
+</script>
 
 </body>
 </html>
