@@ -147,7 +147,7 @@ button:hover{
 
 <!-- Video Background -->
 <video autoplay muted loop id="bg-video">
-  <source src="C:\xampp\htdocs\uas_atha\background\TS to MP4.mp4" type="video/mp4">
+  <source src="background/TS to MP4.mp4" type="video/mp4">
   Browser Anda tidak mendukung video.
 </video>
 
