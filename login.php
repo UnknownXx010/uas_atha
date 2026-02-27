@@ -57,7 +57,7 @@ body, html{
     top:0; left:0;
     width:100%;
     height:100%;
-    background: transparent url('https://i.ibb.co/7G9sjpX/particles.png') repeat;
+    background: transparent url('background/particles.png') repeat;
     animation: moveParticles 60s linear infinite;
     z-index: -1;
 }
