@@ -192,7 +192,7 @@ tahunView.addEventListener('change', function () {
     <a href="index.php" class="back">← Kembali ke Data Kendaraan</a>
 </div>
 
-<!-- JAVASCRIPT FORMAT RUPIAH -->
+
 <script>
 const hargaView = document.getElementById('harga_view');
 const hargaHidden = document.getElementById('harga');
