@@ -8,6 +8,8 @@ $password = $_POST['password'];
 $data = mysqli_fetch_assoc(
     mysqli_query($conn,"SELECT * FROM users WHERE username='$username'")
 );
+var_dump($data);
+exit;
 
 if($data && password_verify($password,$data['password'])){
     $_SESSION['login'] = true;
