@@ -9,6 +9,8 @@ $data = mysqli_fetch_assoc(
     mysqli_query($conn,"SELECT * FROM users WHERE username='$username'")
 );
 var_dump($data);
+echo "<br>";
+var_dump(password_verify($password, $data['password']));
 exit;
 
 if($data && password_verify($password,$data['password'])){
