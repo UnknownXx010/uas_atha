@@ -26,25 +26,23 @@ body, html{
 /* Video Background */
 #bg-video {
     position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -3;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
     object-fit: cover;
+    z-index: -3;
     filter: brightness(0.5);
 }
 
-/* Overlay Glow Gradient */
-body::before{
-    content:"";
-    position:absolute;
+/* Glow Overlay */
+#overlay-glow {
+    position: fixed;
     top:0; left:0;
-    width:100%; height:100%;
+    width:100%;
+    height:100%;
     background: radial-gradient(circle at top right,#00f5ff33,#008cff33,transparent);
-    z-index:-2;
+    z-index: -2;
     animation: glowPulse 6s ease-in-out infinite;
 }
 
@@ -53,15 +51,15 @@ body::before{
     50%{opacity:1;}
 }
 
-/* Partikel bergerak */
-body::after{
-    content:"";
-    position:absolute;
+/* Partikel */
+#particles {
+    position: fixed;
+    top:0; left:0;
     width:100%;
     height:100%;
     background: transparent url('https://i.ibb.co/7G9sjpX/particles.png') repeat;
     animation: moveParticles 60s linear infinite;
-    z-index:-1;
+    z-index: -1;
 }
 
 @keyframes moveParticles {
@@ -150,6 +148,12 @@ button:hover{
   <source src="background/video.mp4" type="video/mp4">
   Browser Anda tidak mendukung video.
 </video>
+
+<!-- Glow Overlay -->
+<div id="overlay-glow"></div>
+
+<!-- Partikel -->
+<div id="particles"></div>
 
 <div class="login-box">
     <h2>🚘 Dealer System</h2>
