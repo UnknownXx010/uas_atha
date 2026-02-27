@@ -11,7 +11,7 @@ $data = mysqli_fetch_assoc(
 
 if($data && password_verify($password,$data['password'])){
     $_SESSION['login'] = true;
-    header("Location: /uas_atha/kendaraan/index.php");
+    header("Location: kendaraan/index.php");
     exit;
 }else{
     echo "Login gagal";
