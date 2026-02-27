@@ -16,44 +16,44 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    background-size: 600% 600%;
-    animation: gradientBG 15s ease infinite;
+body, html{
+    height:100%;
+    width:100%;
     overflow:hidden;
     position: relative;
 }
 
-/* Animasi gradient bergerak */
-@keyframes gradientBG {
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+/* Video Background */
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -3;
+    object-fit: cover;
+    filter: brightness(0.5);
 }
 
-/* Glow pulsasi */
+/* Overlay Glow Gradient */
 body::before{
     content:"";
     position:absolute;
-    width:600px;
-    height:600px;
-    background:radial-gradient(circle,#00f5ff66,transparent);
-    top:-200px;
-    right:-200px;
-    border-radius:50%;
-    animation: glowPulse 4s ease-in-out infinite;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: radial-gradient(circle at top right,#00f5ff33,#008cff33,transparent);
+    z-index:-2;
+    animation: glowPulse 6s ease-in-out infinite;
 }
 
 @keyframes glowPulse {
-    0%,100%{transform: scale(1);}
-    50%{transform: scale(1.2);}
+    0%,100%{opacity:0.7;}
+    50%{opacity:1;}
 }
 
-/* Partikel ringan */
+/* Partikel bergerak */
 body::after{
     content:"";
     position:absolute;
@@ -61,6 +61,7 @@ body::after{
     height:100%;
     background: transparent url('https://i.ibb.co/7G9sjpX/particles.png') repeat;
     animation: moveParticles 60s linear infinite;
+    z-index:-1;
 }
 
 @keyframes moveParticles {
@@ -68,17 +69,21 @@ body::after{
     100%{background-position:1000px 1000px;}
 }
 
+/* Login Box */
 .login-box{
-    position:relative;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
     width:350px;
     padding:40px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(20px);
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
     border-radius:20px;
     border:1px solid rgba(255,255,255,0.2);
-    box-shadow:0 0 40px rgba(0,255,255,0.2);
+    box-shadow:0 0 25px rgba(0,255,255,0.4);
     color:white;
-    z-index: 10; /* supaya tetap di atas background */
+    z-index: 10;
 }
 
 .login-box h2{
@@ -137,15 +142,19 @@ button:hover{
     opacity:0.7;
 }
 </style>
-
 </head>
 <body>
+
+<!-- Video Background -->
+<video autoplay muted loop id="bg-video">
+  <source src="video-background.mp4" type="video/mp4">
+  Browser Anda tidak mendukung video.
+</video>
 
 <div class="login-box">
     <h2>🚘 Dealer System</h2>
 
     <form method="POST" action="cek_login.php">
-        
         <div class="input-group">
             <label>Username</label>
             <input type="text" name="username" required>
