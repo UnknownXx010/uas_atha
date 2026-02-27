@@ -129,13 +129,16 @@ button:hover{
 
         <div class="input-group">
             <label>Tahun</label>
-            <input type="number" name="tahun">
+           <input type="date" name="tahun" required>
         </div>
 
-        <div class="input-group">
-            <label>Harga</label>
-            <input type="number" name="harga" required>
-        </div>
+        
+            <div class="input-group">
+    <label>Harga (Rp)</label>
+    <input type="text" id="harga_view" placeholder="Rp 0" required>
+    <input type="hidden" name="harga" id="harga">
+</div>
+     
 
         <div class="input-group">
             <label>Merk</label>
