@@ -22,19 +22,50 @@ body{
     justify-content:center;
     align-items:center;
     background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    background-size: 600% 600%;
+    animation: gradientBG 15s ease infinite;
     overflow:hidden;
+    position: relative;
 }
 
-/* Background glow */
+/* Animasi gradient bergerak */
+@keyframes gradientBG {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Glow pulsasi */
 body::before{
     content:"";
     position:absolute;
     width:600px;
     height:600px;
-    background:radial-gradient(circle,#00f5ff33,transparent);
+    background:radial-gradient(circle,#00f5ff66,transparent);
     top:-200px;
     right:-200px;
     border-radius:50%;
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%,100%{transform: scale(1);}
+    50%{transform: scale(1.2);}
+}
+
+/* Partikel ringan */
+body::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background: transparent url('https://i.ibb.co/7G9sjpX/particles.png') repeat;
+    animation: moveParticles 60s linear infinite;
+}
+
+@keyframes moveParticles {
+    0%{background-position:0 0;}
+    100%{background-position:1000px 1000px;}
 }
 
 .login-box{
@@ -47,6 +78,7 @@ body::before{
     border:1px solid rgba(255,255,255,0.2);
     box-shadow:0 0 40px rgba(0,255,255,0.2);
     color:white;
+    z-index: 10; /* supaya tetap di atas background */
 }
 
 .login-box h2{
