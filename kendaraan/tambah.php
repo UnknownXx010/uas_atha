@@ -181,10 +181,15 @@ tahunView.addEventListener('change', function () {
             </select>
         </div>
 
-        <div class="input-group">
-            <label>Foto Unit</label>
-            <input type="file" name="foto" accept="image/*" required>
-        </div>
+       <div class="input-group">
+    <label>Foto Unit</label>
+    <input 
+        type="file" 
+        name="foto" 
+        accept=".jpg,.png"
+        required
+    >
+</div>
 
         <button type="submit">Simpan Data</button>
     </form>
