@@ -10,7 +10,7 @@ $data = mysqli_fetch_assoc($query);
 
 if($data && password_verify($password,$data['password'])){
     $_SESSION['login'] = true;
-    header("Location: dashboard.php");
+   header("Location: kendaraan/index.php");
     exit;
 }else{
     echo "Login gagal";
