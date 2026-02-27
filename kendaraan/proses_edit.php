@@ -51,14 +51,12 @@ if($_FILES['foto']['name'] != ""){
 
 }else{
 
-    // Jika tidak upload baru → pakai foto lama
+   
     $nama_baru = $foto_lama;
 }
 
 
-// =======================
-// UPDATE DATABASE
-// =======================
+
 
 mysqli_query($conn,"UPDATE kendaraan SET
     id_merk='$id_merk',
