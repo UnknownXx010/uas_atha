@@ -23,7 +23,7 @@ body, html{
     position: relative;
 }
 
-/* Video Background */
+
 #bg-video {
     position: fixed;
     top:0;
@@ -35,7 +35,7 @@ body, html{
     filter: brightness(0.5);
 }
 
-/* Glow Overlay */
+
 #overlay-glow {
     position: fixed;
     top:0; left:0;
@@ -51,7 +51,7 @@ body, html{
     50%{opacity:1;}
 }
 
-/* Partikel */
+
 #particles {
     position: fixed;
     top:0; left:0;
@@ -67,7 +67,7 @@ body, html{
     100%{background-position:1000px 1000px;}
 }
 
-/* Login Box */
+
 .login-box{
     position:absolute;
     top:50%;
@@ -143,16 +143,16 @@ button:hover{
 </head>
 <body>
 
-<!-- Video Background -->
+
 <video autoplay muted loop id="bg-video">
   <source src="background/video.mp4" type="video/mp4">
   Browser Anda tidak mendukung video.
 </video>
 
-<!-- Glow Overlay -->
+
 <div id="overlay-glow"></div>
 
-<!-- Partikel -->
+
 <div id="particles"></div>
 
 <div class="login-box">
