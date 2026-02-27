@@ -52,3 +52,12 @@ JOIN tipe_kendaraan ON kendaraan.id_tipe = tipe_kendaraan.id_tipe
 </tr>
 <?php } ?>
 </table>
+
+<?php
+session_start();
+if(!isset($_SESSION['login'])){
+    header("Location: ../login.php");
+    exit;
+}
+include "../koneksi.php";
+?>

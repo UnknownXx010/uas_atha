@@ -45,3 +45,12 @@ Foto <input type="file" name="foto" required><br>
 
 <button type="submit">Simpan</button>
 </form>
+
+<?php
+session_start();
+if(!isset($_SESSION['login'])){
+    header("Location: ../login.php");
+    exit;
+}
+include "../koneksi.php";
+?>

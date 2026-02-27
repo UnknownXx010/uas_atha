@@ -35,3 +35,13 @@ VALUES (NULL,'$id_merk','$id_tipe','$nama_unit','$no_rangka',
 
 header("Location: index.php");
 ?>
+
+
+<?php
+session_start();
+if(!isset($_SESSION['login'])){
+    header("Location: ../login.php");
+    exit;
+}
+include "../koneksi.php";
+?>
